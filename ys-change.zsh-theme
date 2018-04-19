@@ -51,12 +51,20 @@ ys_hg_prompt_info() {
   fi
 }
 
+bureau_precmd () {
+  print -rP "$precmd"
+}
+
 local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
 
-PROMPT="
-%{$terminfo[bold]$fg_bold[magenta]%}%~%{$reset_color%}\
+local precmd="
+%{$terminfo[bold]$fg[yellow]%}➜ %{$fg_bold[magenta]%}`tput smul`%~`tput smul`%{$reset_color%}\
 ${hg_info}\
 ${git_info}\
 \
-%{$fg[white]%}   [%*]   $exit_code
-%{$terminfo[bold]$fg[red]%}➜ %{$reset_color%}"
+%{$fg[white]%}  $exit_code  [%*]"
+
+PROMPT="%{$terminfo[bold]$fg[red]%}❯ %{$reset_color%}"
+
+autoload -U add-zsh-hook
+add-zsh-hook precmd bureau_precmd
