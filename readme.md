@@ -19,7 +19,7 @@
 ### 1、init
 - clone repo
 ````
-git clone https://github.com/txw-yates/ys-change-zsh-theme.git ~/
+git clone https://github.com/txw-yates/ys-change-zsh-theme.git
 ````
 - 移动主题文件
 ````
