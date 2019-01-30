@@ -30,7 +30,7 @@ function git_prompt {
         if [[ -n $git_status ]]; then
             git_status="[$git_status%{$reset_color%} ] "
         fi
-        local git_prompt=" < $(git_prompt_info)$mode$git_status>"
+        local git_prompt=" ( $(git_prompt_info)$mode$git_status)"
         echo $git_prompt
     fi
 }
@@ -57,14 +57,10 @@ bureau_precmd () {
 
 local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
 
-local precmd="
-%{$terminfo[bold]$fg[yellow]%}➜ %{$fg_bold[magenta]%}`tput smul`%~`tput smul`%{$reset_color%}\
+PROMPT="
+%{$terminfo[bold]$fg_bold[magenta]%}%~%{$reset_color%}\
 ${hg_info}\
 ${git_info}\
 \
-%{$fg[white]%}  $exit_code  [%*]"
-
-PROMPT="%{$terminfo[bold]$fg[red]%}❯ %{$reset_color%}"
-
-autoload -U add-zsh-hook
-add-zsh-hook precmd bureau_precmd
+%{$fg[white]%}   [%*]   $exit_code
+%{$terminfo[bold]$fg[red]%}➜ %{$reset_color%}"
