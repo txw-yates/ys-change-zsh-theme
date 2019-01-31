@@ -13,7 +13,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="$YS_VCS_PROMPT_DIRTY"
 ZSH_THEME_GIT_PROMPT_CLEAN="$YS_VCS_PROMPT_CLEAN"
 
 # Git status.
-ZSH_THEME_GIT_PROMPT_ADDED="%{$fg_bold[green]%} ✚%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_ADDED="%{$fg_bold[green]%} ✚ %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DELETED="%{$fg_bold[red]%} -%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%} ●%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg_bold[blue]%} ❯%{$reset_color%}"
@@ -63,4 +63,4 @@ ${hg_info}\
 ${git_info}\
 \
 %{$fg[white]%}   [%*]   $exit_code
-%{$terminfo[bold]$fg[red]%}➜ %{$reset_color%}"
+%{$terminfo[bold]$fg[red]%}❯ %{$reset_color%}"
